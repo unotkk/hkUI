@@ -1,20 +1,18 @@
 <script setup>
+import { reactive, toRefs } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+const state = reactive({
+  imgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201512%2F20%2F20151220183506_iXnQc.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671635379&t=a26b4a695ae205184288478fa4c29cf2'
+})
+const {imgUrl}  = toRefs(state)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <Magnifier  
+  :imgUrl="imgUrl"
+  
+  />
 </template>
 
 <style scoped>
