@@ -1,5 +1,7 @@
 <template>
-  <div class="img-wrap"
+  <div 
+  v-my-magnifier
+  class="img-wrap"
   :style="{
     width: imgWidth + 'px',
     height: imgHeight + 'px',
@@ -14,7 +16,7 @@
     }"
     >
       <img 
-      class="mag-img"
+      class="img-wrap"
       :src="imgUrl"
       :alt="imgAlt"
       :style="{
@@ -38,6 +40,7 @@
 </template>
 
 <script setup>
+import {magnifier as vMyMagnifier} from '../directives/magnifier'
 const props = defineProps({
   imgWidth: {
     type: Number,
@@ -49,11 +52,11 @@ const props = defineProps({
   },
   magWidth: {
     type: Number,
-    default: 150
+    default: 100
   },
   magHeight: {
     type: Number,
-    default: 150
+    default: 100
   },
   bank: {
     type: Boolean,
