@@ -35,14 +35,16 @@ export const magnifier =  {
     elMagWrap.style.left = x + 'px'
     elMagWrap.style.top = y + 'px'
     elImgWrap.style.left = -x + 'px'
-    elImgWrap.style.top = -y + 'px'
+     elImgWrap.style.top = -y + 'px'
+     console.log('mouseX',mouseX)
     if(mouseX<0 || mouseY<0 || mouseX > imgWidth || mouseY > imgHeight) {
-      elImgWrap.className = 'mag-wrap'
+      elMagWrap.className = 'mag-wrap'
       document.removeEventListener('mousemove',handleMouseMove, false)
     }
    }
    function getXY(e) {
-    console.log(e.pageX - imgX)
+    //  console.log('pageX',e.pageX)
+    //  console.log('pageY', e.pageY)
     return {
       x: e.pageX - imgX - magWidth/2,
       y: e.pageY - imgY -magHeight/2,

@@ -24,9 +24,11 @@ const {imgUrl,imgWidth,imgHeight}  = toRefs(state)
 <style scoped>
 .wrapper{
   width: 373px;
+  /* margin-left: 100px; */
   margin: 100px auto;
+  overflow: hidden;
 }
-header {
+/* header {
   line-height: 1.5;
 }
 
@@ -51,5 +53,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
+} */
 </style>
