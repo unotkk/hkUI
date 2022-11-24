@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, toRefs } from 'vue';
+import { reactive, toRefs, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 const state = reactive({
@@ -8,9 +8,26 @@ const state = reactive({
   imgHeight: 560
 })
 const {imgUrl,imgWidth,imgHeight}  = toRefs(state)
+const deadline = new Date('2022-11-28 23:59:59')
+let countLabel = ref('')
+function countdown () {
+  // debugger
+  const now = new Date(), timeRemainning = deadline - now;
+  let day, hour, minute, second;
+  if (timeRemainning < 0) {return 0;}
+  second = Math.floor(timeRemainning/1000%60)
+  minute = Math.floor(timeRemainning/1000/60%60)
+  hour = Math.floor(timeRemainning/1000/60/60%24)
+  day = Math.floor(timeRemainning/1000/60/60/24)
+  countLabel.value = `${day}天${hour}时${minute}分${second}秒`
+  console.log(countLabel)
+  setTimeout(countdown,1000)
+}
+countdown()
 </script>
 
 <template>
+  <div>{{countLabel}}</div>
   <div class="wrapper">
     <Magnifier  
     :imgUrl="imgUrl"

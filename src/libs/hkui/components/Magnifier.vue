@@ -95,6 +95,7 @@ const props = defineProps({
     box-shadow: 0 0 3px #ccc;
     cursor: move;
     overflow: hidden;
+    border-radius: 50%;
     &.show{
       display: block;
       transform: scale(1.5);
